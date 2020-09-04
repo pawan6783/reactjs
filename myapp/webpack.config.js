@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
     entry: './index.js',
 
     output: {
@@ -11,7 +10,27 @@ module.exports = {
 
     module: {
         rules: [
-            {test: /\.txt$/, use: 'raw-loader'}
+            {
+                test: /\.txt$/, 
+                use: 'raw-loader'
+            },
+
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
         ]
+    
+    },
+
+    devServer: {
+        contentBase: path.join(__dirname,'public')
     }
-}
+
+   }

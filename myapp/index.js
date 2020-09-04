@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import './styles/style.css';
 
-const template = React.createElement('h1',null,'Hello World!');
-ReactDom.render(template,document.getElementById('root'));
+const App = () => {
+    return <h1>Hello from React</h1>;
+};
+ReactDom.render(<App />,document.getElementById('root'));
