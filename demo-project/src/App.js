@@ -1,44 +1,42 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Person from './Person/Person';
 import './App.css';
 
-class App extends Component {
+const App = props => {
 
-  state = {
+  const [personState, setPersonState] = useState({
+
     persons: [
       {name: 'max', age: 22},
-      {name: 'henry', age: 30},
-      {name: 'john', age: 25}
+      {name: 'john', age: 25},
+      {name: 'eran', age: 27}
     ],
-    otherState: 'some other state'
-  }
+  });
 
-  switchNameHandler = () =>{
-    // console.log("Button clicked");
-    this.setState({
+  const [otherState,setOtherState] = useState({
+    otherState: 'some other state'
+  });
+
+  console.log(personState,otherState);
+
+  const switchNameHandler = () =>{
+
+    setPersonState({
       persons: [
-        {name: 'eran', age: 25},
-        {name: 'henry', age:30 },
-        {name: 'john', age: 22}
+        {name: 'henry', age: 22},
+        {name: 'john', age: 25},
+        {name: 'eran', age: 30}
       ]
     });
   }
-  render(){
 
-    return(
-     
-      <div className="App">
-           <h1>Hello World!</h1> 
-           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-           <Person name = {this.state.persons[1].name} age={this.state.persons[1].age}>I like to play football</Person>
-           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-           <button onClick={this.switchNameHandler}>SwitchName</button>
-      </div>
-  
-    //  React.createElement('div',null,React.createElement('h1',{className: 'App'},'Hello World!'))
-
-    );
-  }
+  return(
+    <div className="App">
+      <Person name={personState.persons[0].name} age={personState.persons[0].age}></Person>
+      <Person name={personState.persons[1].name} age={personState.persons[1].age}>I like football</Person>
+      <Person name={personState.persons[2].name} age={personState.persons[2].age}></Person>
+      <button onClick={switchNameHandler}>switchName</button>
+    </div>
+  );
 }
-
 export default App;
