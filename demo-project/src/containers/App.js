@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Persons from '../components/Persons/Persons';
 import './App.css';
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
 
@@ -53,29 +54,25 @@ class App extends Component {
   }
   render(){
 
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
+    // const style = {
+    //   backgroundColor: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer'
 
-    }
+    // }
 
     let persons = null;
 
     if(this.state.showPerson){
         
       persons = (
-        <div>
-          {
             <Persons
               persons = {this.state.persons}
               clicked = {this.deletePersonHandler}
               changed = {this.nameChangeHandler}
             ></Persons>
-          }
-        </div>
       );
       
     }
@@ -83,12 +80,11 @@ class App extends Component {
     return(
       
       <div className="App">
-        <h1>Hello React!</h1> 
-
-        <button 
-        style={style}
-        onClick={this.toggleNameHandler}>TogglePerson</button>
-        
+        <Cockpit
+          showPersons = {this.state.showPerson}
+          persons = {this.state.persons}
+          clicked = {this.toggleNameHandler}
+        ></Cockpit>
         {persons}   
       </div>
 
