@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import EmployeeTable  from '../components/EmployeeTable';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    employees: [
+      {name: "Charlie", job: "Janitor"},
+      {name: "Mac", job: "Bouncer"},
+      {name: "Dee", job: "Aspiring actress"},
+      {name: "Dennis", job: "Bartender"}
+    ]
+  }
+  render(){
+
+    let employeeList = this.state.employees.map(employee =>{
+      return(
+        <tr className="tr">
+          <td className="td">{employee.name}</td>
+          <td className="td">{employee.job}</td>
+        </tr>
+      );
+    }
+    );
+
+    return (
+      <EmployeeTable employeeList = {employeeList} />
+    );
+
+    }
 }
 
 export default App;
