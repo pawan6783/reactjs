@@ -12,28 +12,33 @@ class App extends Component {
         {id: "1", name: "abc", job: "eng"}
       ]
     }
-    this.nameChangeHandler = this.nameChangeHandler.bind(this);
-    this.addEmployeeHandler = this.addEmployeeHandler.bind(this);
-
-  }
-
-  newEmployee = {}
-
-  nameChangeHandler(event){
-    const {name,value} = event.target;
-     
-     this.newEmployee[name]=value; 
-
-    if(name==="job"){
-      this.newEmployee["id"]=this.newEmployee["name"]+this.newEmployee["job"];
-    }
     
   }
+
+  // newEmployee = {}
+
+  // nameChangeHandler(event){
+  //   const {name,value} = event.target;
+     
+  //    this.newEmployee[name]=value; 
+
+  //   if(name==="job"){
+  //     this.newEmployee["id"]=this.newEmployee["name"]+this.newEmployee["job"];
+  //   }
+
+  //   event.preventDefault();
+    
+  // }
   
   
 
   addEmployeeHandler(event) {
     const tempEmployees = [...this.state.employees];
+    const newEmployee = {
+      id: 
+      name: event.,
+      age: {this.state.employees.age}
+    }
     console.log(this.newEmployee);
     tempEmployees.push(this.newEmployee);
     
