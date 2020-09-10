@@ -9,36 +9,32 @@ class App extends Component {
     super(props);
     this.state = {
       employees: [
-        {id: "1", name: "abc", job: "eng"}
+       // {id: "1", name: "abc", job: "eng"}
       ]
     }
     
   }
 
-  // newEmployee = {}
+  newEmployee = {}
 
-  // nameChangeHandler(event){
-  //   const {name,value} = event.target;
+  nameChangeHandler(event){
+    const {name,value} = event.target;
      
-  //    this.newEmployee[name]=value; 
+     this.newEmployee[name]=value; 
 
-  //   if(name==="job"){
-  //     this.newEmployee["id"]=this.newEmployee["name"]+this.newEmployee["job"];
-  //   }
-
-  //   event.preventDefault();
+    if(name==="job"){
+      this.newEmployee["id"]=this.newEmployee["name"]+this.newEmployee["job"];
+    }
     
-  // }
+  }
   
   
 
   addEmployeeHandler(event) {
+    event.preventDefault();
+
     const tempEmployees = [...this.state.employees];
-    const newEmployee = {
-      id: 
-      name: event.,
-      age: {this.state.employees.age}
-    }
+   
     console.log(this.newEmployee);
     tempEmployees.push(this.newEmployee);
     
@@ -48,22 +44,31 @@ class App extends Component {
     this.newEmployee = {};
   }
 
-  deleteEmployeeHandler(){
+  deleteEmployeeHandler(index){
+    const tempEmployees = [...this.state.employees];
+   
+    console.log(this.newEmployee);
+    
+    tempEmployees.splice(index,1);
+    
+    this.setState({
+      employees: tempEmployees
+    });
 
   }
 
   render(){
 
-    let employeeList = this.state.employees.map(employee => {
+    let employeeList = this.state.employees.map((employee,index) => {
       return(
         <tr className="tr"
-            key={employee.name+employee.job}
+            key={employee.id}
         >
           <td className="td">{employee.name}</td>
           <td className="td">{employee.job}</td>
           <td className="td">
             <button
-            onClick={()=>this.deleteEmployeeHandler()}
+            onClick={()=>this.deleteEmployeeHandler(index)}
             >Delete</button>
           </td>
         </tr>

@@ -8,16 +8,16 @@ const NewEmployee = props => {
                     <label>Name</label>
                     <input 
                     type="text" 
-                    id="name"
-                  //  onChange={props.addEmployee}
+                    name="name"
+                    onChange={props.addEmployee}
                     ></input>
                 </div>
                 <div>
                     <label>Job</label>
                     <input 
                     type="text" 
-                    value={props.state.employees.age}
-                   // onChange={props.addEmployee}
+                    name="job"
+                    onChange={props.addEmployee}
                     ></input>
                 </div>
                 <input type="submit" value="Submit"></input>
