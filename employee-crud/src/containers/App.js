@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import EmployeeTable from '../components/EmployeeTable';
 import NewEmployee from '../components/NewEmployee';
+import TableRow from '../components/TableRow';
 
 class App extends Component {
 
@@ -9,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       employees: [
-       // {id: "1", name: "abc", job: "eng"}
+       // { name: "abc", job: "eng"}
       ]
     }
     
@@ -21,10 +22,6 @@ class App extends Component {
     const {name,value} = event.target;
      
      this.newEmployee[name]=value; 
-
-    if(name==="job"){
-      this.newEmployee["id"]=this.newEmployee["name"]+this.newEmployee["job"];
-    }
     
   }
   
@@ -61,17 +58,10 @@ class App extends Component {
 
     let employeeList = this.state.employees.map((employee,index) => {
       return(
-        <tr className="tr"
-            key={employee.id}
-        >
-          <td className="td">{employee.name}</td>
-          <td className="td">{employee.job}</td>
-          <td className="td">
-            <button
-            onClick={()=>this.deleteEmployeeHandler(index)}
-            >Delete</button>
-          </td>
-        </tr>
+        <TableRow 
+        emp={employee}
+        clicked = {(index) => {this.deleteEmployeeHandler(index)}}>
+        </TableRow>
       );
     });
     return (

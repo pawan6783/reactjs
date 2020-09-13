@@ -7,6 +7,7 @@ const NewEmployee = props => {
                  <div>
                     <label>Name</label>
                     <input 
+                    id="addName"
                     type="text" 
                     name="name"
                     onChange={props.addEmployee}
@@ -15,6 +16,7 @@ const NewEmployee = props => {
                 <div>
                     <label>Job</label>
                     <input 
+                    id="addJob"
                     type="text" 
                     name="job"
                     onChange={props.addEmployee}

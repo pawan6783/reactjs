@@ -6,8 +6,8 @@ const EmployeeTable = props => {
     return(
       <table className="table">
           <tr>
-            <th>Name</th>
-            <th>Job</th>
+            <th id="name">Name</th>
+            <th id="job">Job</th>
           </tr>
           {props.employeeList}
       </table>
