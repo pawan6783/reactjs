@@ -1,8 +1,15 @@
 import React from 'react';
-const Hello = () => (
-    <div>
-        <h1>Hello World</h1>
-    </div>
-);
+import logger from '../logger';
+const Hello = () => {
+    
+    logger.info("<Hello /> component called");
+    
+    return(
+
+        <div>
+            <h1>Hello World</h1>
+        </div>
+    );
+}
 
 export default Hello;
