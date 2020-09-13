@@ -16,15 +16,24 @@ describe("Testing for <NewEmployee /> component", () => {
     expect(wrapper.find('form')).toHaveLength(1);
   });
 
-  it("should return one `tr` element", () => {
+  it("should return `addEmployee` method", () => {
     const addEmployee = jest.fn();
-    wrapper.find('#addName').simulate('click');
+    wrapper = shallow(<NewEmployee changed = {addEmployee}/>);
+    wrapper.find('#addName').simulate('changed');
     expect(addEmployee).toBeTruthy();
   });
 
-  it("should have three `th` element with text", () => {
+  it("should return `addEmployee` method", () => {
     const addEmployee = jest.fn();
-    wrapper.find('#addJob').simulate('click');
+    wrapper = shallow(<NewEmployee changed = {addEmployee}/>);
+    wrapper.find('#addJob').simulate('changed');
+    expect(addEmployee).toBeTruthy();
+  });
+
+  it("should return `addEmployee` method", () => {
+    const addEmployee = jest.fn();
+    wrapper = shallow(<NewEmployee changed = {addEmployee}/>);
+    wrapper.find('#addJob').simulate('changed');
     expect(addEmployee).toBeTruthy();
   });
 
